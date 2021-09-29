@@ -46,6 +46,9 @@ with open('addresses_for_task.csv', 'r') as f:
             countyID = (counties.index(single_address[-1]))
             county_coordinates = coordinates_counties_geojson[countyID]
 
+            print("\nLevel of Precision: low")
+            print(county_coordinates,"      -     County:",str(single_address[-1]).capitalize())
+
         else:
             Error += 1 
             print("\nError, no working address found\n")
