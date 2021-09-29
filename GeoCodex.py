@@ -1,3 +1,5 @@
+import json
+
 
 removables = ['[', ']', '"', "\n", "address\n", ' ', "", "Co."]
 def normalize_title(title):
@@ -5,6 +7,15 @@ def normalize_title(title):
         title = title.replace(remove, '')
     title = title.lower()
     return title
+
+
+coordinates_counties_geojson = []
+with open('counties.geojson', 'r') as f:
+    data = json.load(f)
+    for county_detail in data['features']:
+        county = county_detail['properties']['County'].lower()
+        coords = county_detail['geometry']['coordinates']
+        coordinates_counties_geojson.append(coords)
 
 
 
@@ -17,8 +28,6 @@ counties = ['carlow','cavan','clare','cork',
 
 
 
-
-
 addresses = []
 with open('addresses_for_task.csv', 'r') as f:
     
@@ -27,3 +36,10 @@ with open('addresses_for_task.csv', 'r') as f:
         title = title.split(",")
         if len(line) > 10:
             addresses.append(title)
+
+    
+    for single_address in addresses: 
+        if single_address[-1] in counties:
+            Success += 1
+            countyID = (counties.index(single_address[-1]))
+            county_coordinates = coordinates_counties_geojson[countyID]
