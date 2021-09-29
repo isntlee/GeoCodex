@@ -57,14 +57,14 @@ with open('addresses_for_task.csv', 'r') as f:
             countyID = (counties.index(single_address[-1]))
             county_coordinates = coordinates_counties_geojson[countyID]
 
-            print("\nLevel of Precision: low")
+            print("\nLevel of Precision: Low")
             print(county_coordinates,"      -     County:",str(single_address[-1]).capitalize())
 
             if single_address[-2] in popcentres_list:
                 popcentreID = (popcentres_list.index(single_address[-2]))
                 popcentre_coordinates = coordinates_popcentres_list[popcentreID]
 
-                print("\nLevel of Precision: medium")
+                print("\nLevel of Precision: Medium")
                 print(popcentre_coordinates,"      -     Town:",str(single_address[-2]).capitalize())
 
         else:
