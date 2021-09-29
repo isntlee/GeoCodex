@@ -29,6 +29,8 @@ counties = ['carlow','cavan','clare','cork',
 
 
 addresses = []
+Success = 0
+Error = 0
 with open('addresses_for_task.csv', 'r') as f:
     
     for line in f:
@@ -43,3 +45,10 @@ with open('addresses_for_task.csv', 'r') as f:
             Success += 1
             countyID = (counties.index(single_address[-1]))
             county_coordinates = coordinates_counties_geojson[countyID]
+
+        else:
+            Error += 1 
+            print("\nError, no working address found\n")
+        
+
+    print("\nSuccessful:",Success,"| Errors:",Error)
