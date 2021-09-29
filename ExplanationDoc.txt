@@ -1,0 +1,23 @@
+
+
+
+
+(A) - The first priority is cleansing the data, it's taken from a CSV file and it's thankfully pretty organised. 
+    On converting it to list data-type, there're some slight variations throughout. These are ironed out with the 
+    normalize_title function, testing against a list of unwanted characters/strings, if found thenremoved and also changing 
+    everything to lowercase.  
+
+    The results are comma-split into easily handled lists, and all short lists are not appended into the useable Addresses list.
+
+
+(B) - The minimum standard for completion was coding county level details with co-ordinates. I found a list of county titles and
+    hard-coded it into the start of the program, this was a fail-safe measure. The county geojson file was then my first focus.
+    I imported json module, opened/read the file and loaded the data. Then began searching through the data, to isolate
+    county titles and their co-ordinates. As the county list was arranged alphabetically, I would be able to rely on a county's
+    index position to be the same as the index position of co-ordinates in the coordinates_counties_list. 
+
+    Made a for loop to work through the addresses list, and tested whether the index last [-1] item (county detail) is found in 
+    the above hard-coded county list. If it was then increment a "success" counter, and check its index position. This should lead
+    to the county's co-ordinates in the coordinates_counties_list.
+
+    If this initial for loop through the Addresses list failed, then the "error" counter was incremented. 
