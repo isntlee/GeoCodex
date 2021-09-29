@@ -24,8 +24,11 @@
 
 
 
-(C) - This approach of searching through the geojson files, populating several lists with relevant data simultaneously and relying
-    on that detail to align the seperate index positions in these seperate lists was used for each of the three most applicable 
+(C) - This approach of searching through geojson files, populating several lists with relevant data simultaneously and relying
+    on that face to align the seperate index positions in these seperate lists was used for each of the three most applicable 
     geojson files. This allowed for three levels of detail: county, town and townland, and then for three levels of precision. The 
     seperate levels are arranged in a series of if/else statements that allows for a levelling-up of precision. If county details are
     in place, then check for town details and then townlands, with townlands being the highest level of precision available. 
+
+
+
